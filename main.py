@@ -35,36 +35,42 @@ scissors = '''
 
 game_images = [rock, paper, scissors]
 
+continue_play = True
+
 def random_number():
     return random.randint(0, 2)
 
-user_choice = int(input('What do you choose? Type 0 for Rock, 1 for Paper, 2 for Scissors: \n'))
+while continue_play:
+    user_choice = int(input('What do you choose? Type 0 for Rock, 1 for Paper, 2 for Scissors: \n'))
 
-if 0 <= user_choice <= 2:
+    if 0 <= user_choice <= 2:
 
-    print(game_images[user_choice])
+        print(game_images[user_choice])
 
-    computer_choice = random_number()
-    print ('Computer chose: ', computer_choice)
-    print(game_images[computer_choice])
+        computer_choice = random_number()
+        print ('Computer chose: ', computer_choice)
+        print(game_images[computer_choice])
 
-    if user_choice == computer_choice:
-        print("It's a draw!")
+        if user_choice == computer_choice:
+            print("It's a draw!")
+        else:
+            if user_choice == 0:
+                if computer_choice == 1:
+                    print ("Computer wins")
+                else:
+                    print ("You win")
+            elif user_choice == 1:
+                if computer_choice == 0:
+                    print("You win!")
+                else:
+                    print("Computer wins!")
+            elif user_choice == 2:
+                if computer_choice == 0:
+                    print("Computer wins!")
+                else:
+                    print("You win!")
     else:
-        if user_choice == 0:
-            if computer_choice == 1:
-                print ("Computer wins")
-            else:
-                print ("You win")
-        elif user_choice == 1:
-            if computer_choice == 0:
-                print("You win!")
-            else:
-                print("Computer wins!")
-        elif user_choice == 2:
-            if computer_choice == 0:
-                print("Computer wins!")
-            else:
-                print("You win!")
-else:
-    print("Invalid choice: Please enter 0 for Rock, 1 for Paper, 2 for Scissors")
+        print("Invalid choice: Please enter 0 for Rock, 1 for Paper, 2 for Scissors")
+
+    if input('Do you want to play again? (y/n): ').lower() == 'n':
+        continue_play = False
