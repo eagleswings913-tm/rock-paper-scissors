@@ -48,26 +48,23 @@ if 0 <= user_choice <= 2:
     print ('Computer chose: ', computer_choice)
     print(game_images[computer_choice])
 
-    if user_choice == 0:
-        if computer_choice == 0:
-            print("Tie")
-        elif computer_choice == 1:
-            print ("Computer wins")
-        else:
-            print ("You win")
-    elif user_choice == 1:
-        if computer_choice == 0:
-            print("You win!")
-        elif computer_choice == 1:
-            print("Tie")
-        else:
-            print("Computer wins!")
-    elif user_choice == 2:
-        if computer_choice == 0:
-            print("Computer wins!")
-        elif computer_choice == 1:
-            print("You win!")
-        else:
-            print("Tie")
+    if user_choice == computer_choice:
+        print("It's a draw!")
+    else:
+        if user_choice == 0:
+            if computer_choice == 1:
+                print ("Computer wins")
+            else:
+                print ("You win")
+        elif user_choice == 1:
+            if computer_choice == 0:
+                print("You win!")
+            else:
+                print("Computer wins!")
+        elif user_choice == 2:
+            if computer_choice == 0:
+                print("Computer wins!")
+            else:
+                print("You win!")
 else:
     print("Invalid choice: Please enter 0 for Rock, 1 for Paper, 2 for Scissors")
