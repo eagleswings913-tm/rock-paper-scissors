@@ -83,7 +83,7 @@ while continue_play:
     else:
         print("Invalid choice: Please enter 0 for Rock, 1 for Paper, 2 for Scissors")
 
-    if input('Do you want to play again? (y/n): ').lower() == 'n':
+    if (input('Do you want to play again? (Y/n): ').lower()  or "y") == 'n':
         continue_play = False
 
 print(f"You played {game_stats['games']} times!")
